@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kanban Task Manager</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="app">
+
+    <!-- Header -->
+    <header class="header">
+
+      <div class="header__brand">
+        <h1>TaskFlow</h1>
+        <p>Manage your work. Stay focused.</p>
+      </div>
+
+      <div class="header__actions">
+        <button class="btn btn--secondary" id="theme-btn">
+          Toggle Theme
+        </button>
+
+        <button class="btn btn--primary" id="add-task-btn">
+          + Add Task
+        </button>
+      </div>
+
+    </header>
+
+
+    <!-- Board -->
+    <section class="board">
+
+      <!-- TODO -->
+      <div class="column" data-status="todo">
+
+        <div class="column__header">
+          <div>
+            <h2>To Do</h2>
+            <span class="task-count" id="todo-count">0</span>
+          </div>
+
+        </div>
+
+        <div class="tasks" id="todo-tasks">
+          <!-- Tasks will be rendered here -->
+        </div>
+
+      </div>
+
+
+      <!-- IN PROGRESS -->
+      <div class="column" data-status="progress">
+
+        <div class="column__header">
+          <div>
+            <h2>In Progress</h2>
+            <span class="task-count" id="progress-count">0</span>
+          </div>
+
+
+        </div>
+
+        <div class="tasks" id="progress-tasks">
+          <!-- Tasks will be rendered here -->
+        </div>
+
+      </div>
+
+
+      <!-- DONE -->
+      <div class="column" data-status="done">
+
+        <div class="column__header">
+          <div>
+            <h2>Done</h2>
+            <span class="task-count" id="done-count">0</span>
+          </div>
+
+        </div>
+
+        <div class="tasks" id="done-tasks">
+          <!-- Tasks will be rendered here -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Statistics -->
+    <section class="stats">
+
+      <div class="stat">
+        <span class="stat__label">Total Tasks</span>
+        <strong id="total-tasks">0</strong>
+      </div>
+
+      <div class="stat">
+        <span class="stat__label">Completed</span>
+        <strong id="completed-tasks">0</strong>
+      </div>
+
+      <div class="stat">
+        <span class="stat__label">Remaining</span>
+        <strong id="remaining-tasks">0</strong>
+      </div>
+
+      <div class="stat">
+        <span class="stat__label">Progress</span>
+        <strong id="progress-percent">0%</strong>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Task Modal -->
+  <div class="modal" id="task-modal">
+
+    <div class="modal__content">
+
+      <div class="modal__header">
+        <h2 id="modal-title">Add Task</h2>
+
+        <button class="modal__close" id="close-modal">
+          &times;
+        </button>
+      </div>
+
+
+      <form id="task-form">
+
+        <div class="form-group">
+          <label for="task-title">Task Title</label>
+
+          <input
+            type="text"
+            id="task-title"
+            placeholder="e.g. Build landing page"
+            required
+          />
+        </div>
+
+
+        <div class="form-group">
+          <label for="task-description">Description</label>
+
+          <textarea
+            id="task-description"
+            placeholder="Describe your task..."
+            rows="4"
+          ></textarea>
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="task-priority">Priority</label>
+
+            <select id="task-priority">
+
+              <option value="low">
+                Low
+              </option>
+
+              <option value="medium" selected>
+                Medium
+              </option>
+
+              <option value="high">
+                High
+              </option>
+
+            </select>
+          </div>
+
+
+          <div class="form-group">
+            <label for="task-date">Due Date</label>
+
+            <input
+              type="date"
+              id="task-date"
+            />
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+          <label for="task-status">Status</label>
+
+          <select id="task-status">
+
+            <option value="todo">
+              To Do
+            </option>
+
+            <option value="progress">
+              In Progress
+            </option>
+
+            <option value="done">
+              Done
+            </option>
+
+          </select>
+        </div>
+
+
+        <div class="modal__actions">
+
+          <button
+            type="button"
+            class="btn btn--secondary"
+            id="cancel-task"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn--primary"
+          >
+            Save Task
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
