@@ -7,7 +7,7 @@ The app allows users to create, organize, complete, and remove tasks across diff
 
 ## 🌐 Live Demo
 
-[View Live Demo](live-demo-url)
+[View Live Demo](https://a-h-m-e-d-z-a-h-e-r.github.io/Todo-Kanban/)
 
 ## ✨ Features
 
